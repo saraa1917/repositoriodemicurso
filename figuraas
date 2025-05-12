@@ -1,0 +1,74 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <script src="https://supereggbert.github.io/aframe-htmlembed-component/dist/build.js"></script>
+
+    <style>
+      .word {
+        height: 100px; width: 200px; text-align: center; padding: 0 0;
+                border:2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene xr-mode-ui="XRMode: xr"
+        webxr="optionalFeatures: hit-test, local-floor"
+        ar-hit-test="target:#plane"
+        reflection="directionalLight:#real-light"
+        renderer="colorManagement:true;
+            exposure:1; toneMapping:ACESFilmic;"
+        obb-collider="showColliders: false">
+
+      <a-assets>
+        <a-mixin id="brick"
+          geometry="primitive: box; depth:0.05; height: 0.1; width: 0.2;"
+          material="color: #4CC3D9" grabbable></a-mixin>
+        <a-mixin id="word" htmlembed="ppu: 1000" position="0 0 0.03" class="word"></a-mixin>
+        <a-mixin id="glass"
+          geometry="primitive: box; depth: 0.3; height: 0.2; width: 0.3;"
+          material="opacity: 0.2"></a-mixin>
+      </a-assets>
+
+      <a-plane id="plane" position="0 0.75 -0.5" rotation="-90 0 0" width="1" height="0.6"
+          color="gray">
+      </a-plane>
+
+      <a-entity position="-0.5 0.85 -0.5"
+          geometry="primitive: box; depth: 0.3; height: 0.2; width: 0.005;"
+        material="opacity: 0.3; color: white" grabbable>
+      </a-entity>
+
+      <a-entity position="-0.3 0.85 -0.5"
+          geometry="primitive: box; depth: 0.3; height: 0.2; width: 0.3;"
+          material="opacity: 0.2; color: red" grabbable>
+      </a-entity>
+
+      <a-entity position="0 0.85 -0.5"
+          geometry="primitive: sphere; radius: 0.15;"
+          material="opacity: 0.2; color: blue" grabbable>
+      </a-entity>
+
+      <a-entity position="0.3 0.85 -0.5"
+          geometry="primitive: cylinder; radius: 0.15; height: 0.2;"
+          material="opacity: 0.2; color: green" grabbable>
+      </a-entity>
+
+      <a-entity position="0.6 0.85 -0.5"
+          geometry="primitive: cone; radiusBottom: 0.15; height: 0.2;"
+          material="opacity: 0.2; color: violet" grabbable>
+      </a-entity>
+
+      <a-entity>
+          <a-entity camera look-controls wasd-controls="acceleration: 10"
+              position="0 0.9 0.5"></a-entity>
+          <a-entity id="leftHand" hand-tracking-grab-controls="hand: left;"></a-entity>
+          <a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>  
+      </a-entity>
+
+      <a-entity light="type: ambient; color: #BBB"></a-entity>
+      <a-light id="real-light" type="directional"
+          position="1 2 1" intensity="2"></a-light>
+
+    </a-scene>
+  </body>
+</html>
