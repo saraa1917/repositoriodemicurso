@@ -6,17 +6,19 @@
     <a-scene>
       <a-assets>
         <img id="maderagris" src="maderagris.jpg">
-           ></a-assets>
-      <img id="paredbonita"  src="paredbonita.jpg">
+        <img id="paredbonita"  src="paredbonita.jpg">
+        <img id="panorama360"  src="panorama360.jpeg">
+      </a-assets>
+      
 
-      <a-box position="0 1 -1" height="2" width="2"  depth="0.1" src="paredbonita.jpg"></a-box>
-    <a-box position="0 1  1" height="2" width="2"  depth="0.1" src="paredbonita.jpg"></a-box>
-    <a-box position="1 1  0" height="2" width="2"  depth="0.1" rotation= "0 90 1" src="paredbonita.jpg"></a-box>
-    <a-box position="-1 1 0" height="2" width="2"  depth="0.1" rotation= "0 -90 1" src="paredbonita.jpg""></a-box>
+      <a-box position="0 1 -1" height="2" width="2"  depth="0.1" src="#paredbonita"></a-box>
+    <a-box position="0 1  1" height="2" width="2"  depth="0.1" src="#paredbonita"></a-box>
+    <a-box position="1 1  0" height="2" width="2"  depth="0.1" rotation= "0 90 1" src="#paredbonita"></a-box>
+    <a-box position="-1 1 0" height="2" width="2"  depth="0.1" rotation= "0 -90 1" src="#paredbonita""></a-box>
     <a-box position="0 0 0" animation="property: rotation; to: 0 360 0; dur: 5000; easing: linear; loop: true; dir: alternate" color="tomato"  
     animation__2="property: position; to: 0 5 0; dur: 2000; loop: true; dir:alternate" 
     color= "tomato"></a-box> 
-    <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="2" src="maderagris.jpg" ></a-plane>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="2" height="2" src="#maderagris" ></a-plane>
 
     <a-sky src="#panorama360"></a-sky>
     
